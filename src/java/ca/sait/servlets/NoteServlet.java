@@ -22,12 +22,12 @@ public class NoteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("WEB-INF/viewnote.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        this.getServletContext().getRequestDispatcher("WEB-INF/viewnote.jsp").forward(request, response);
+        this.getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp").forward(request, response);
     }
 }

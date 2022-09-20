@@ -12,6 +12,20 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Simple Note Keeper</h1>
+        <h2>View Note</h2>
+        
+        <div>
+            <p><Strong>Title:</strong> 
+            ${note.getTitle()}<p>
+        </div>
+        <div>
+            <p>
+            <strong>Contents:</strong>
+            <br/>${note.getContents()}
+            </p>
+        </div>
+        <a href="">Edit</a>
+        
     </body>
 </html>

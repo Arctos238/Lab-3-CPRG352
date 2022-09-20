@@ -4,7 +4,7 @@
  */
 package ca.sait.servlets;
 
-import ca.sait.jellybeans.Note;
+import ca.sait.JavaBeans.Note;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -43,8 +43,18 @@ public class NoteServlet extends HttpServlet {
         Note note = new Note(title, contents);
 
         request.setAttribute("note", note);
-        this.getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp").forward(request, response);
-//         this.getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp").forward(request, response);
+
+        String edit = request.getParameter("edit");
+
+        if (edit != null) {
+            this.getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp").forward(request, response);
+
+        } else if (edit == null){
+            this.getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp").forward(request, response);
+        }
+
+        br.close();
+
     }
 
     /**
@@ -61,7 +71,15 @@ public class NoteServlet extends HttpServlet {
         String path = getServletContext().getRealPath("/WEB-INF/note.txt");
         PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(path, false)));
 
-        this.getServletContext().getRequestDispatcher("/WEB-INF/viewnote.jsp").forward(request, response);
+        String title = request.getParameter("title");
+        String contents = request.getParameter("contents");
+
+        pw.println(title);
+        pw.println(contents);
+
+        pw.close();
+
+        response.sendRedirect("note");
     }
 
 }

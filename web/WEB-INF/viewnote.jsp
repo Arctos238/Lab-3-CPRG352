@@ -1,7 +1,7 @@
 <%-- 
     Document   : viewnote
     Created on : Sep. 19, 2022, 1:21:35 p.m.
-    Author     : H.Perry
+    Author     : J. Pointer
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,15 +17,14 @@
         
         <div>
             <p><Strong>Title:</strong> 
-            ${note.getTitle()}<p>
+            ${note.title}<p>
         </div>
         <div>
             <p>
             <strong>Contents:</strong>
-            <br/>${note.getContents()}
+            <br/>${note.contents}
             </p>
         </div>
-        <a href="">Edit</a>
-        
+        <a href="note?edit">Edit</a
     </body>
 </html>
